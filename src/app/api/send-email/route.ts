@@ -38,7 +38,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   };
 
   const transporter = createTransport(mailConfig);
-  sendMail();
+  await sendMail();
 
   let res = NextResponse.json(resJson);
   return res;
