@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createTransport } from 'nodemailer';
 
 export async function POST(req: NextRequest): Promise<NextResponse> {
-  const res = NextResponse.json({ name: 'taro' });
+  let resJson = {};
 
   // リクエストボディをJSON形式で取得
   const json = await req.json();
@@ -29,9 +29,10 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   const sendMail = async () => {
     try {
-      await transporter.sendMail(mailData);
+      resJson = await transporter.sendMail(mailData);
       alert('メールを送信しました。');
     } catch (error) {
+      resJson = { error: `${error}` };
       alert('メールの送信に失敗しました。');
     }
   };
@@ -39,5 +40,6 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   const transporter = createTransport(mailConfig);
   sendMail();
 
+  let res = NextResponse.json(resJson);
   return res;
 }
