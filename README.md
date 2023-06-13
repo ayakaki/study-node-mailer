@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# study-node-mailer
 
-## Getting Started
+Next.js にて nodemailer を使用してメールを送る方法をまとめた
 
-First, run the development server:
+## 手順 (Gmail で送信)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+### アプリ パスワード設定を行う
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Google アカウント
+- `セキュリティ`
+- `2段階認証プロセス`
+- `アプリ パスワード`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Next.js アプリケーション側の設定
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+ソースコード通り
 
-## Learn More
+## VIEW
 
-To learn more about Next.js, take a look at the following resources:
+### INPUT 画面
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+※送信先は送信後にマスク入力
+![input](https://github.com/ayakaki/study-node-mailer/assets/65984887/e5f4c2d6-6edb-4adc-9f6e-991a2e502685)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### メールタイトル
 
-## Deploy on Vercel
+![title](https://github.com/ayakaki/study-node-mailer/assets/65984887/ca8bb38c-2b66-4876-8a93-29d5d73690b6)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### メール内容
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![content](https://github.com/ayakaki/study-node-mailer/assets/65984887/07314670-7bde-48c9-8cb3-b6e688e40b9f)
+
+## 特記事項
+
+- nodemailer はクライアントサイドコンポーネントでは使用できない
