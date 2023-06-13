@@ -18,16 +18,17 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     },
   };
 
-  const transporter = createTransport(mailConfig);
-
   const sendMail = async () => {
     try {
-      // await transporter.sendMail(mailData);
+      await transporter.sendMail(json);
       alert('メールを送信しました。');
     } catch (error) {
       alert('メールの送信に失敗しました。');
     }
   };
+
+  const transporter = createTransport(mailConfig);
+  sendMail();
 
   res.cookies.set('trial', 'john');
 
