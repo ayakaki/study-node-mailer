@@ -30,10 +30,8 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
   const sendMail = async () => {
     try {
       resJson = await transporter.sendMail(mailData);
-      alert('メールを送信しました。');
     } catch (error) {
       resJson = { error: `${error}` };
-      alert('メールの送信に失敗しました。');
     }
   };
 
