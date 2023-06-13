@@ -35,8 +35,6 @@ export default function Home() {
   return (
     <div className="container mx-auto mt-12">
       <div className="mb-4">
-        <p>送信元：{process.env.NEXT_PUBLIC_EMAIL_SENDER}</p>
-        <p>パス：{process.env.NEXT_PUBLIC_EMAIL_PASSWORD}</p>
         <label>
           <p>送信先</p>
           <input type="text" className="text-black" onChange={setTo}></input>
